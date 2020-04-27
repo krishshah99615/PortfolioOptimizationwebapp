@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="heading">
+    <h1 class="green-text center-align">Result Analysis</h1>
+    <h6 class="grey-text center-align">Reccommanded</h6>
+</div>
+<h4 class="header orange-text">Recomanded Stock Allocation</h4>
+<div class="row">
+    {% for key,value in d.Allocation.items() %}
+    <div class="col ">
+
+        <div class="card horizontal">
+
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>{{key}}</p>
+                </div>
+                <div class="card-action">
+                    <p class="black-text">Allocation Percent
+                        <span class="grey-text">{{value*100}} %</span></p>
+                    <p class="black-text">No of Shares
+                        <span class="grey-text">{{d.AllocationNo[key]}}</span></p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<h4 class="header orange-text">Amount Left : <span class="green-text">$ {{d.Left_Amount}}</span></h4>
+
+
+<h4 class="header orange-text">Stats</h4>
+
+<div class="collection">
+    <div class="collection-item">
+        <div class="row">
+            <div>
+                Orignal Annual Returns
+            </div>
+            <div class="grey-text right important">
+                {{d.orignal_annual_return}}
+            </div>
+        </div>
+    </div>
+    <div class="collection-item">
+        <div class="row">
+            <div>
+                New Annual Returns
+            </div>
+            <div class="grey-text right important">
+                {{d.new_annual_return}}
+            </div>
+        </div>
+    </div>
+    <div class="collection-item">
+        <div class="row">
+            <div>
+                Orignal Portfolio Volatility
+            </div>
+            <div class="grey-text right important">
+                {{d.orignal_port_volatility}}
+            </div>
+        </div>
+    </div>
+    <div class="collection-item">
+        <div class="row">
+            <div>
+                New Portfolio Volatility
+            </div>
+            <div class="grey-text right important">
+                {{d.new_port_volatility}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
