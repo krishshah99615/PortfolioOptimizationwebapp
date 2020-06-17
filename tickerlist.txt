@@ -1,0 +1,6 @@
+AAPL Apple Inc
+MSFT Microsoft
+FB Facebook
+GOOGL Google LLC
+AMZN Amazon
+CSCO Cisco

@@ -19,11 +19,12 @@ def get_data(tickers, start, end):
     print(" \nDownloading Data...")
     for sym in tickers:
         df = web.DataReader(sym, 'yahoo', start, end)
-        data = data.join(df['Adj Close'])
-        data.rename(columns={'Adj Close': f'{sym}'}, inplace=True)
+        data = data.join(df['Open'])
+        data.rename(columns={'Open': f'{sym}'}, inplace=True)
     data.dropna(inplace=True)
 
     print("Downloaded data and saved")
+    print(data.head())
     return data
 
 
@@ -59,4 +60,5 @@ def opt_data(ticker, start, end, amt):
         "Allocation": cw,
         "AllocationNo": allocation,
         "Left_Amount": str(round(leftover, 2))
+
     }
